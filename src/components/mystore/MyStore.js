@@ -9,3 +9,5 @@ function MyStore() {
 }
 
 export default MyStore;
+
+//This is Jacob. Building a brick & mortar store by hand MIGHT be easier than what we're trying.
