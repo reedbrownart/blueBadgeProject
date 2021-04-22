@@ -2,9 +2,9 @@ import React from 'react';
 
 function Market() {
     return(
-        <div>
-            This is the Market
-        </div>
+            <div>
+                This is the Market
+            </div>
     );
 }
 
