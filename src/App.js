@@ -8,6 +8,7 @@ function App() {
       <Navbar />
       <Display />
       <ModalDisplay />
+      {/* This is a test by Reed and should only be in the reed branch */}
     </div>
   );
 }
