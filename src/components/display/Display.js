@@ -1,16 +1,20 @@
 import React from 'react';
-import Auth from './Auth';
-import Market from '../market/Market';
-import MyStore from '../mystore/MyStore';
-import ShoppingCart from '../shoppingcart/ShoppingCart';
+import Market from './market/Market';
+import MyStore from './mystore/MyStore';
 
-function Display() {
+function Display(props) {
+    const {
+        isMarket,
+        isMyStore
+    } = props;
+
     return(
-        <div>
-            <Auth />
-            <Market />
-            <MyStore />
-            <ShoppingCart />
+        <div className = "display">
+            {isMarket
+                ? <Market />
+            : isMyStore
+                ? <MyStore />
+                : <></>}
         </div>
     );
 }
