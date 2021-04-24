@@ -5,6 +5,10 @@
 .navbar {
   border: 3px black solid;
   background-color: turquoise;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .display {

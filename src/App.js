@@ -8,16 +8,11 @@ function App(props) {
   const [isMarket, setIsMarket] = useState(true);
   const [isMyStore, setIsMyStore] = useState(false);
 
-  const [isShoppingCart, setIsShoppingCart] = useState(false);
-  const [isAuth, setIsAuth] = useState(false);
-
   return (
     <div className="App">
       <Navbar 
         setIsMarket = {setIsMarket}
-        setIsMyStore = {setIsMyStore}
-        setIsAuth = {setIsAuth}
-        setIsShoppingCart = {setIsShoppingCart}/>
+        setIsMyStore = {setIsMyStore}/>
       <Display 
         isMarket = {isMarket} 
         isMyStore = {isMyStore} />
