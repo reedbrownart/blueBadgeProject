@@ -22,12 +22,8 @@ function Hero() {
                         </Col> */}
                     </Row>
             </Container>
-            This is the Hero
         </div>
     );
 }
 
 export default Hero;
-
-
-
