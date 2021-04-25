@@ -1,5 +1,6 @@
 import React from 'react';
-import Product from '../../maincomponents/Product';
+import {Container, Row, Col} from "reactstrap";
+import Product from "../../maincomponents/Product"
 
 function Grid() {
 
@@ -13,35 +14,56 @@ function Grid() {
 
     return (
         <div>
-            <h1>This is the Grid</h1>
-            <Product
-                productName={productName}
-                price={price}
-                description={description}
-                stock={stock}
-                storeOwner={storeOwner}
-                imageURL={imageURL} />
-            <Product
-                productName={productName}
-                price={price}
-                description={description}
-                stock={stock}
-                storeOwner={storeOwner}
-                imageURL={imageURL} />
-            <Product
-                productName={productName}
-                price={price}
-                description={description}
-                stock={stock}
-                storeOwner={storeOwner}
-                imageURL={imageURL} />
-            <Product
-                productName={productName}
-                price={price}
-                description={description}
-                stock={stock}
-                storeOwner={storeOwner}
-                imageURL={imageURL} />
+            <Container>
+                <Row>
+                    <Col>
+                        <Product 
+                          productName={productName}
+                              price={price}
+                             description={description}
+                             stock={stock}
+                             storeOwner={storeOwner}
+                             imageURL={imageURL} />
+                    </Col>
+                    <Col>
+                        <Product />
+                    </Col>
+                    <Col>
+                        <Product />
+                    </Col>
+                    <Col>
+                        <Product />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Product />
+                    </Col>
+                    <Col>
+                        <Product />
+                    </Col>
+                    <Col>
+                        <Product />
+                    </Col>
+                    <Col>
+                        <Product />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Product />
+                    </Col>
+                    <Col>
+                        <Product />
+                    </Col>
+                    <Col>
+                        <Product />
+                    </Col>
+                    <Col>
+                        <Product />
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 }
