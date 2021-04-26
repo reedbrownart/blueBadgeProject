@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Card } from "reactstrap";
+import { Container, Row, Col} from "reactstrap";
+
 
 function Hero() {
     return (
@@ -7,7 +8,7 @@ function Hero() {
             <Container>
                     <Row>
                         <Col>
-                            <img width="100%" height="280px" src="https://www.ancient-origins.net/sites/default/files/field/image/Parthenon.jpg" />
+                            <img width="100%" height="250px" src="https://www.ancient-origins.net/sites/default/files/field/image/Parthenon.jpg" />
                         </Col>
 
                         <Col>
@@ -15,13 +16,17 @@ function Hero() {
                             <h4>Zee only marketplace that does NOT bloodsuck the artist hard earned monies</h4>
                         </Col>
 
-                        {/* <Col>
-                            <input type="text">Username</input>
-                            <input type="text">Password</input>
-                            <button onClick>Start Shopping</button>
-                        </Col> */}
+                        <Col>
+                            <input value="input" placeholder="username"/>
+                            <br/>
+                            <input value="input" placeholder="password"/>
+                            <br/>
+                            <button>Start Shopping</button>
+                        </Col>
                     </Row>
             </Container>
+            <br/>
+            <br/>
         </div>
     );
 }
