@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Row, Col, Button, Nav, NavItem, NavLink} from 'reactstrap';
+import {Container, Row, Col, Button} from 'reactstrap';
 import Grid from '../market/Grid';
 
 function MyStore() {
@@ -31,7 +31,7 @@ function MyStore() {
                         <Button className="btn-success float-right"> + Add Product</Button>
                     </Col>
                 </Row>
-                <Grid />
+                {<Grid />}
             </Container>
         </div>
     );
