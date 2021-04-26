@@ -1,8 +1,10 @@
 import React from 'react';
+import { Container, Row, Col} from 'reactstrap';
 import CreateStore from '../../modals/CreateStore';
 import EditStore from '../../modals/EditStore';
 import AddProduct from '../../modals/AddProduct';
 import EditProduct from '../../modals/EditProduct';
+import StoreGrid from './storeGrid';
 
 function MyStore() {
     return(
@@ -24,16 +26,11 @@ function MyStore() {
                         <h5 style={{textAlign: "left"}}>Here's some information on my store: Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. </h5>
                     </Col>
                     <Col xs="4">
-                        <Button className="btn-success float-right">Edit User Info</Button>
-                        <br />
-                        <br />
-                        <Button className="btn-success float-right">Edit Store Info</Button>
-                        <br />
-                        <br />
-                        <Button className="btn-success float-right"> + Add Product</Button>
+                        <EditStore buttonLabel="Edit Store" className="editStore" />
+                        <AddProduct buttonLabel="Add Product" className="addProduct" />
                     </Col>
                 </Row>
-                {<Grid />}
+                {<StoreGrid />}
             </Container>
         </div>
     );
