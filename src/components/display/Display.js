@@ -10,7 +10,7 @@ function Display() {
             <Auth />
             <Market />
             <MyStore />
-            <ShoppingCart />
+          
         </div>
     );
 }
