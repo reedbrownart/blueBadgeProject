@@ -1,6 +1,8 @@
 import React from 'react';
-import {Container, Row, Col, Button} from 'reactstrap';
-import Grid from '../market/Grid';
+import CreateStore from '../../modals/CreateStore';
+import EditStore from '../../modals/EditStore';
+import AddProduct from '../../modals/AddProduct';
+import EditProduct from '../../modals/EditProduct';
 
 function MyStore() {
     return(
