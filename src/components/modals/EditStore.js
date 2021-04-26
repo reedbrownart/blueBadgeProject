@@ -1,13 +1,38 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {
+  Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
+  Label, Input
+} from 'reactstrap';
 
-const EditStore = (props) => {
+function AddProduct(props) {
+
   const {
     buttonLabel,
     className
   } = props;
 
+  const [storeName, setStoreName] = useState('');
+  const [storeLocation, setStoreLocation] = useState('');
+  const [storeDescription, setStoreDescription] = useState('');
+
+
   const [modal, setModal] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch('http://localhost:3000/store/:storeId', {
+      method: 'PUT',
+      body: JSON.stringify({ log: { storeName, storeLocation, storeDescription } }),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + props.token
+      })
+    })
+      .then((res) => res.json())
+      .then((logData) => {
+        console.log(logData);
+      })
+  }
 
   const toggle = () => setModal(!modal);
 
@@ -15,17 +40,30 @@ const EditStore = (props) => {
     <div>
       <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <Form onSubmit={handleSubmit}>
+            <FormGroup>
+              <Label htmlFor='storeName'>Store Name</Label>
+              <Input name='storeName' value={storeName}
+                onChange={(e) => setStoreName(e.target.value)} />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor='storeLocation'>Store Location</Label>
+              <Input name='storeLocation' value={storeLocation}
+                onChange={(e) => setStoreLocation(e.target.value)} />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor='storeDescription'>Store Description</Label>
+              <Input type="textarea" name='storeDescription' value={storeDescription}
+                onChange={(e) => setStoreDescription(e.target.value)} />
+            </FormGroup>
+            <Button type="submit" color="primary" onClick={toggle}>Confirm store changes</Button>{' '}
+            <Button color="secondary" onClick={toggle}>Cancel</Button>
+          </Form>
         </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-        </ModalFooter>
       </Modal>
     </div>
   );
 }
 
-export default EditStore;
+export default AddProduct;

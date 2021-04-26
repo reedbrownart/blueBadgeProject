@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Row, Col} from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import Product from "../../maincomponents/Product"
 
 function Grid() {
@@ -17,13 +17,13 @@ function Grid() {
             <Container>
                 <Row>
                     <Col>
-                        <Product 
-                          productName={productName}
-                              price={price}
-                             description={description}
-                             stock={stock}
-                             storeOwner={storeOwner}
-                             imageURL={imageURL} />
+                        <Product
+                            productName={productName}
+                            price={price}
+                            description={description}
+                            stock={stock}
+                            storeOwner={storeOwner}
+                            imageURL={imageURL} />
                     </Col>
                     <Col>
                         <Product />
