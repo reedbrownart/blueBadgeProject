@@ -1,6 +1,10 @@
 import React from 'react';
 import Market from './market/Market';
 import MyStore from './mystore/MyStore';
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 function Display(props) {
     const {
