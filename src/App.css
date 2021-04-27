@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.navbar {
+  border: 3px black solid;
+  background-color: turquoise;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.display {
+  border: 3px black solid;
+  background-color: lemonchiffon;
+}
+
+.modalDisplay {
+  border: 3px black solid;
+  background-color: lightskyblue;
+}
+
+
+
+.cardImage {
+  width: 50px;
+  height: 50px;
+}
