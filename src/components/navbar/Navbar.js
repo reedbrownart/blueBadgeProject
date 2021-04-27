@@ -22,8 +22,8 @@ function Navbar(props) {
 
     return(
         <div className = "navbar">
-            <ShoppingCart buttonLabel = {"Cart"} className = {"modal"}/>
-            <Auth buttonLabel = {"Login / Signup"} className = {"modal"}/>
+            <ShoppingCart buttonLabel = {"Cart"} className = {"shoppingCart"}/>
+            <Auth buttonLabel = {"Login / Signup"} className = {"Login"}/>
             <Button onClick = {loadMarket}>Market</Button>
             <Button onClick = {loadMyStore}>My Store</Button>
         </div>
