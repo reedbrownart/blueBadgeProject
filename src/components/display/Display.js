@@ -15,7 +15,7 @@ function Display(props) {
     return(
         <div className = "display">
             {isMarket
-                ? <Market />
+                ? <Market updateToken = {props.updateToken} />
             : isMyStore
                 ? <MyStore />
                 : <></>}
