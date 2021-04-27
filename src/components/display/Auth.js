@@ -29,23 +29,37 @@ const Auth = (props) => {
   const signupFields = () => {
       return !login ?
       (
-          <div>
-               <label htmlFor="email">Email:</label>
-              <br />
-              <input type="text" id="email" value={email}
-              onChange={(e)=> setEmail(e.target.value)} />
-              <br />
-              <label htmlFor="firstName">First Name:</label>
-              <br />
-              <input type="text" id="firstName" value={firstName}
-              onChange={(e)=> setFirstName(e.target.value)} />
-              <br />
-              <label htmlFor="lastName">Last Name:</label>
-              <br />
-              <input type="text" id="lastName" value={lastName}
-              onChange={(e)=> setLastName(e.target.value)} />
-          </div>
-          
+        <div>
+        <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
+        <Modal isOpen={login} toggle={toggle} className={className}>
+          <ModalHeader toggle={toggle}>Login</ModalHeader>
+          <ModalBody>
+            <Form>
+            <FormGroup>
+          <Label htmlFor="email">Email:</Label>
+            <Input type="text" id="email" value={email}
+            onChange={(e)=> setEmail(e.target.value)} />
+            </FormGroup>
+            <FormGroup>
+            <Label htmlFor="firstName">First Name:</Label>
+            <br />
+            <Input type="text" id="firstName" value={firstName}
+            onChange={(e)=> setFirstName(e.target.value)} />
+            </FormGroup>
+            <FormGroup>
+            <Label htmlFor="lastName">Last Name:</Label>
+            <br />
+            <Input type="text" id="lastName" value={lastName}
+            onChange={(e)=> setLastName(e.target.value)} />
+            </FormGroup>
+          </Form>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={toggle}>Login</Button>{' '}
+            <Button color="secondary" onClick={toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
+      </div>
       ) : null
   }
   return(
@@ -76,4 +90,3 @@ const Auth = (props) => {
   
 };
 
-export default Auth;

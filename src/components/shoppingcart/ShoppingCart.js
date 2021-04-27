@@ -4,7 +4,7 @@ import product from '../Product';
 function ShoppingCart(props) {
    //need Product props passed
     const {product} = props;
-    const [cartItems, setCartItems] = useState('');
+    const [cartItems, setCartItems] = useState([]);
     const addItem = (product) => {
         const existing = cartItems.find(product.id);
         if(existing) {
@@ -15,7 +15,7 @@ function ShoppingCart(props) {
     };
     const removeItem = (product) => {
         const existing = cartItems.find(product.id);
-        if (existing.qty === 1) {
+        if (existing.qty >= 1) {
             setCartItems(cartItems.filter((x)=> 
             product.id ? {...existing, qty: existing.qty - 1} : product
             ));
