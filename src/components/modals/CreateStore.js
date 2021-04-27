@@ -4,7 +4,7 @@ import {
   Label, Input
 } from 'reactstrap';
 
-function AddProduct(props) {
+function CreateStore(props) {
 
   const {
     buttonLabel,
@@ -30,8 +30,8 @@ function AddProduct(props) {
       })
     })
       .then((res) => res.json())
-      .then((logData) => {
-        console.log(logData);
+      .then((data) => {
+        console.log(data);
       })
   }
 
@@ -67,4 +67,4 @@ function AddProduct(props) {
   );
 }
 
-export default AddProduct;
+export default CreateStore;
