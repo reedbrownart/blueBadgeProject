@@ -5,13 +5,14 @@ import MyStore from './mystore/MyStore';
 function Display(props) {
     const {
         isMarket,
-        isMyStore
+        isMyStore,
+        updateToken
     } = props;
 
     return(
         <div className = "display">
             {isMarket
-                ? <Market updateToken = {props.updateToken} />
+                ? <Market updateToken = {updateToken} />
             : isMyStore
                 ? <MyStore />
                 : <></>}

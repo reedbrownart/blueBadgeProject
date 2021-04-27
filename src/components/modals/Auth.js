@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   Button,
   Modal,
@@ -13,7 +14,7 @@ import {
 
 function Auth(props) {
 
-  const { buttonLabel, Login } = props;
+  const { buttonLabel, Login, updateToken } = props;
 
   const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
@@ -32,7 +33,7 @@ function Auth(props) {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/user/register', {
+    fetch('https://blue-badge-agora-server.herokuapp.com/user/register', {
       method: 'POST',
       body: JSON.stringify({ 
         username: username, 
@@ -48,12 +49,12 @@ function Auth(props) {
     })
       .then((res) => res.json())
       .then((data) => {
-        //props.updateToken(data.sessionToken);
+        updateToken(data.token);
       })
   }
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/user/login', {
+    fetch('https://blue-badge-agora-server.herokuapp.com/user/login', {
       method: 'POST',
       body: JSON.stringify({ username: username, password: password }),
       headers: new Headers({
@@ -62,7 +63,7 @@ function Auth(props) {
     })
       .then((res) => res.json())
       .then((data) => {
-        //props.updateToken(data.sessionToken);
+        updateToken(data.token);
       })
   }
 

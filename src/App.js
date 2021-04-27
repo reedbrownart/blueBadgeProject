@@ -23,7 +23,8 @@ function App(props) {
     <div className="App">
       <Navbar 
         setIsMarket = {setIsMarket}
-        setIsMyStore = {setIsMyStore}/>
+        setIsMyStore = {setIsMyStore}
+        updateToken = {updateToken}/>
       <Display 
         isMarket = {isMarket} 
         isMyStore = {isMyStore}
