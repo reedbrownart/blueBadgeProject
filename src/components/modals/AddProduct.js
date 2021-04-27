@@ -24,7 +24,7 @@ function AddProduct(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/product/create' + userId, {
+    fetch('https://blue-badge-agora-server.herokuapp.com/product/create' + userId, {
       method: 'POST',
       body: JSON.stringify({ productName, price, description, stock, imageURL }),
       headers: new Headers({

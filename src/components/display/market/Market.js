@@ -1,12 +1,12 @@
 import React from 'react';
 import Hero from "./Hero";
-import Grid from "./Grid";
+// import Grid from "./Grid";
 
-function Market() {
+function Market(props) {
     return(
             <div>
-                <Hero />
-                <Grid />
+                <Hero updateToken = {props.updateToken}/>
+                {/* <Grid /> */}
             </div>
     );
 }

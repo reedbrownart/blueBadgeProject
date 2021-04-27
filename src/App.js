@@ -12,15 +12,23 @@ function App(props) {
 
   const [isMarket, setIsMarket] = useState(true);
   const [isMyStore, setIsMyStore] = useState(false);
+  const [sessionToken, setSessionToken] = useState("");
+  
+  const updateToken = (newToken) => {
+    localStorage.setItem("token", newToken);
+    setSessionToken(localStorage.getItem("token"))
+  }
 
   return (
     <div className="App">
       <Navbar 
         setIsMarket = {setIsMarket}
-        setIsMyStore = {setIsMyStore}/>
+        setIsMyStore = {setIsMyStore}
+        updateToken = {updateToken}/>
       <Display 
         isMarket = {isMarket} 
-        isMyStore = {isMyStore} />
+        isMyStore = {isMyStore}
+        updateToken = {updateToken} />
     </div>
   );
 }

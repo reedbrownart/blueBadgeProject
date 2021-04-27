@@ -1,38 +1,49 @@
-import React from 'react';
-import { Container, Row, Col} from 'reactstrap';
-import CreateStore from '../../modals/CreateStore';
-import EditStore from '../../modals/EditStore';
-import AddProduct from '../../modals/AddProduct';
+import React, { useState } from 'react';
+import NewStore from './NewStore';
+import ExistingStore from './ExistingStore';
+
 import EditProduct from '../../modals/EditProduct';
 import StoreGrid from './storeGrid';
 
 function MyStore() {
+
+    const [hasStore, setHasStore] = useState(false);
+    /* const [products, setProducts] = useState([]);
+    const [userOnPage, setUserOnPage] = useState();
+
+    setProducts(exampleArray); */
+
+    function fetcher() {
+        fetch("http://localhost:3500/store/mystore")
+            .then(response => response.json())
+            .then((data) => {           //will have to wait for deployed server to check this
+                //setProducts(data)
+                //products = data;
+                console.log(data);
+                setHasStore(true)
+            })
+            .catch((err) => {           //this part works
+                console.log(err);
+                setHasStore(false);
+                //setUserOnPage(fetchInfo)
+            })
+        console.log(hasStore)
+    }
+
+    function swapState() {
+        setHasStore(!hasStore);
+        console.log(hasStore);
+    }
+
     return(
-        <div>
-            <Container>
+        <>
+            <button onClick={fetcher}>TEST BUTTON</button>
+            <button onClick={swapState}>SWAP STATE</button>
+            {hasStore ? <ExistingStore /> : <NewStore />}
+            {hasStore ? <StoreGrid fetcher={fetcher}/> : <></>}
+            {/* <StoreGrid products={products} /> */}
 
-                {/* COMMENT: I added in textAlign and padding styles in-line
-                I wanted to get an idea of how things would look without effecting
-                styles at a larger scope. We should discuss:
-                   - Are there multiple components/elements that can match style
-                   - Do we want to style w/ Reactstrap, styled-components, material-ui
-                   - My vote would likely be Reactstrap base (as much as possible) and 
-                     styled-components to handle specifics of individaul components */}
-
-                <h1> STORE NAME </h1>
-                <Row style={{padding: "1em 0"}}>
-                    <Col m="8">
-                        <h4 style={{textAlign: "left"}}>My Store Location</h4>
-                        <h5 style={{textAlign: "left"}}>Here's some information on my store: Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. </h5>
-                    </Col>
-                    <Col xs="4">
-                        <EditStore buttonLabel="Edit Store" className="editStore" />
-                        <AddProduct buttonLabel="Add Product" className="addProduct" />
-                    </Col>
-                </Row>
-                {<StoreGrid />}
-            </Container>
-        </div>
+        </>
     );
 }
 
