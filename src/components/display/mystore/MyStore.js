@@ -14,7 +14,7 @@ function MyStore() {
     setProducts(exampleArray); */
 
     function fetcher() {
-        fetch("http://localhost:3500/store/mystore")
+        fetch("https://blue-badge-agora-server.herokuapp.com/store/mystore")
             .then(response => response.json())
             .then((data) => {           //will have to wait for deployed server to check this
                 //setProducts(data)
@@ -25,7 +25,7 @@ function MyStore() {
             .catch((err) => {           //this part works
                 console.log(err);
                 setHasStore(false);
-                //setUserOnPage(fetchInfo)
+                //setUserOnPage(fetchInfo)   //this is saving
             })
         console.log(hasStore)
     }

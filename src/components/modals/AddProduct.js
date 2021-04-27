@@ -8,7 +8,9 @@ function AddProduct(props) {
 
   const {
     buttonLabel,
-    className
+    className,
+    token,
+    userId
   } = props;
 
   const [productName, setProductName] = useState('');
@@ -22,12 +24,12 @@ function AddProduct(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/product/create', {
+    fetch('http://localhost:3000/product/create' + userId, {
       method: 'POST',
-      body: JSON.stringify({ log: { productName, price, description, stock, imageURL } }),
+      body: JSON.stringify({ productName, price, description, stock, imageURL }),
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + props.token
+        'Authorization': token
       })
     })
       .then((res) => res.json())
