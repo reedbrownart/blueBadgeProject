@@ -3,7 +3,7 @@ import NewStore from './NewStore';
 import ExistingStore from './ExistingStore';
 
 import EditProduct from '../../modals/EditProduct';
-import StoreGrid from './StoreGrid';
+import StoreGrid from './storeGrid';
 
 function MyStore() {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import ShoppingCart from '../modals/ShoppingCart';
+import ShoppingCart from '../shoppingcart/ShoppingCart';
 import Auth from '../modals/Auth';
 
 function Navbar(props) {

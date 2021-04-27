@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import product from '../Product';
+import Product from '../maincomponents/Product';
 
 function ShoppingCart(props) {
    //need Product props passed
