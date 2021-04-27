@@ -8,8 +8,11 @@ function Product(props) {
 
     const {productName, price, description, stock, storeOwner, imageURL} = props;
 
+
+    
     return (
-        <div>
+        <>
+            <h2>Test Text.</h2>
             <Card>
                 <CardImg className = "cardImage" top width="100%" src={imageURL} alt="Card image cap" />
                 <CardBody>
@@ -21,7 +24,7 @@ function Product(props) {
                     <Button>Add to Cart</Button>
                 </CardBody>
             </Card>
-        </div>
+        </>
     );
 }
 
