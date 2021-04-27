@@ -12,6 +12,12 @@ function App(props) {
 
   const [isMarket, setIsMarket] = useState(true);
   const [isMyStore, setIsMyStore] = useState(false);
+  const [sessionToken, setSessionToken] = useState("");
+  
+  const updateToken = (newToken) => {
+    localStorage.setItem("token", newToken);
+    setSessionToken(localStorage.getItem("token"))
+  }
 
   return (
     <div className="App">
@@ -20,7 +26,8 @@ function App(props) {
         setIsMyStore = {setIsMyStore}/>
       <Display 
         isMarket = {isMarket} 
-        isMyStore = {isMyStore} />
+        isMyStore = {isMyStore}
+        updateToken = {updateToken} />
     </div>
   );
 }
