@@ -21,7 +21,7 @@ const EditProduct = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/product/:productID', {
+    fetch('http://localhost:3000/product/:productId', { 
       method: 'PUT',
       body: JSON.stringify({ log: { productName, price, description, stock, imageURL } }),
       headers: new Headers({

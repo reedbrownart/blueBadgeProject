@@ -14,7 +14,7 @@ function Grid() {
 
     return (
         <div>
-            <Container>
+            <Container className="containerFull">
                 <h2>Checkout our featured items of the week</h2>
                 <br/>
                 <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor!</h5>
