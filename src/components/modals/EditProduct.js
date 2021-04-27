@@ -7,7 +7,10 @@ import {
 const EditProduct = (props) => {
   const {
     buttonLabel,
-    className
+    className,
+    fetcher,
+    productId,
+    token
   } = props;
 
   const [productName, setProductName] = useState('');
@@ -21,12 +24,12 @@ const EditProduct = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/product/:productID', {
+    fetch('https://blue-badge-agora-server.herokuapp.com/product/' + productId, { 
       method: 'PUT',
-      body: JSON.stringify({ log: { productName, price, description, stock, imageURL } }),
+      body: JSON.stringify({ productName, price, description, stock, imageURL }),
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + props.token
+        'Authorization': token
       })
     })
       .then((res) => res.json())

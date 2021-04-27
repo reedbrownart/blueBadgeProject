@@ -8,7 +8,8 @@ function AddProduct(props) {
 
   const {
     buttonLabel,
-    className
+    className,
+    token
   } = props;
 
   const [storeName, setStoreName] = useState('');
@@ -20,12 +21,12 @@ function AddProduct(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/store/create', {
+    fetch('https://blue-badge-agora-server.herokuapp.com/store/create', {
       method: 'POST',
-      body: JSON.stringify({ log: { storeName, storeLocation, storeDescription } }),
+      body: JSON.stringify({ storeName, storeLocation, storeDescription }),
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + props.token
+        'Authorization': token
       })
     })
       .then((res) => res.json())
