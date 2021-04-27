@@ -4,7 +4,8 @@ import EditStore from '../../modals/EditStore';
 import AddProduct from '../../modals/AddProduct';
 
 
-const ExistingStore = () => {
+const ExistingStore = (props) => {
+    const {token } = props;
 
     return (
         <Container>
@@ -16,7 +17,7 @@ const ExistingStore = () => {
                     </Col>
                     <Col xs="4" style={{}}>
                         <EditStore buttonLabel="Edit Store" className="editStore" />
-                        <AddProduct buttonLabel="Add Product" className="addProduct" />
+                        <AddProduct buttonLabel="Add Product" className="addProduct" token = {token}/>
                     </Col>
                 </Row>
         </Container>

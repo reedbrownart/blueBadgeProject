@@ -5,7 +5,8 @@ import ExistingStore from './ExistingStore';
 import EditProduct from '../../modals/EditProduct';
 import StoreGrid from './storeGrid';
 
-function MyStore() {
+function MyStore(props) {
+    const {token } = props;
 
     const [hasStore, setHasStore] = useState(false);
     /* const [products, setProducts] = useState([]);
@@ -14,7 +15,7 @@ function MyStore() {
     setProducts(exampleArray); */
 
     function fetcher() {
-        fetch("http://localhost:3500/store/mystore")
+        fetch("https://blue-badge-agora-server.herokuapp.com/store/mystore")
             .then(response => response.json())
             .then((data) => {           //will have to wait for deployed server to check this
                 //setProducts(data)
@@ -39,8 +40,8 @@ function MyStore() {
         <>
             <button onClick={fetcher}>TEST BUTTON</button>
             <button onClick={swapState}>SWAP STATE</button>
-            {hasStore ? <ExistingStore /> : <NewStore />}
-            {hasStore ? <StoreGrid fetcher={fetcher}/> : <></>}
+            {hasStore ? <ExistingStore token = {token}/> : <NewStore token = {token}/>}
+            {hasStore ? <StoreGrid fetcher={fetcher} token = {token}/> : <></>}
             {/* <StoreGrid products={products} /> */}
 
         </>
