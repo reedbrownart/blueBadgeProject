@@ -169,10 +169,10 @@ function Auth(props) {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </FormGroup>
-              <Button color="primary" type="submit">
+              <Button color="primary" id="primary" type="submit">
               Signup
             </Button>{" "}
-            <Button color="secondary" onClick={toggle}>
+            <Button color="secondary" id="secondary" onClick={toggle}>
               Cancel
             </Button>
             </Form>
