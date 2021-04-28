@@ -83,7 +83,7 @@ const [cartItems, setCartItems] = useState([]);
         <div key={index}>
             <h3>{sci.productName}</h3>
             <p>{sci.description}</p>
-            <img src= {sci.imageURL}/>  
+            <img src= {sci.imageURL} width="100"/>  
             <h5>Price: ${sci.price}</h5>
         </div>
       )
@@ -91,6 +91,18 @@ const [cartItems, setCartItems] = useState([]);
 
     )
   }
+
+  const checkOut = () => {
+    fetch("https://blue-badge-agora-server.herokuapp.com/user/checkout/1", {
+    method: 'PUT',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    })
+  })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+        alert("Thank you for shopping with Agora!")
+  } 
 
   
 
@@ -102,12 +114,30 @@ const [cartItems, setCartItems] = useState([]);
       <Modal isOpen={modal} toggle={toggle} className={ShoppingCart}>
         <ModalHeader toggle={toggle}>Shopping Cart</ModalHeader>
         <ModalBody>
-         
-       
-          
+
+         <div className="cartProduct">
+        <h4>Flip Flops</h4>
+        <Label htmlFor='price'>$5.99</Label>
+        <br />
+        <Label htmlFor='description'>Black flip Flops</Label>
+        <br />
+        <img src="https://aritzia.scene7.com/is/image/Aritzia/hi-res/s20_03_n01_78377_1274_off_a.jpg" width="100" alt=""></img>
+        <br />
+        <Label htmlFor='stock'>20 in stock</Label>
+        </div>
+
+        
+
+        {mappingCart()}
+
+
+
+
+
+
         </ModalBody>
         <ModalFooter>
-          <Button onClick={() => alert("Thank you for shopping with Agora!")}>
+          <Button onClick={() => checkOut}>
             Checkout
           </Button>
           <Button color="secondary" onClick={toggle}>
