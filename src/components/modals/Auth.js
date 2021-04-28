@@ -31,7 +31,7 @@ function Auth(props) {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/user/register', {
+    fetch(`${APIURL}/user/register`, {
       method: 'POST',
       body: JSON.stringify({
         username: username,
@@ -54,7 +54,7 @@ function Auth(props) {
   }
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/user/login', {
+    fetch(`${APIURL}/user/login`, {
       method: 'POST',
       body: JSON.stringify({ username: username, password: password }),
       headers: new Headers({

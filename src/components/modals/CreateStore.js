@@ -3,6 +3,7 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
   Label, Input
 } from 'reactstrap';
+import APIURL from './helpers/environment';
 
 function CreateStore(props) {
 
@@ -22,7 +23,7 @@ function CreateStore(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/store/create', {
+    fetch(`${APIURL}/store/create`, {
       method: 'POST',
       body: JSON.stringify({ storeName, storeLocation, storeDescription }),
       headers: new Headers({

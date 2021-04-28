@@ -10,7 +10,7 @@ function Grid(props) {
     const [productInfo, setProductInfo] = useState([]);
 
     const getProducts = () => {
-        fetch("https://blue-badge-agora-server.herokuapp.com/product/", {
+        fetch(`${APIURL}/product/`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json"
@@ -26,7 +26,7 @@ function Grid(props) {
     const addToCart = (productID) => {
         //e.preventDefault();
         console.log(productID)
-        fetch("https://blue-badge-agora-server.herokuapp.com/user/addtocart/", {
+        fetch(`${APIURL}/user/addtocart/`, {
             method: "PUT",
             body: JSON.stringify({"productID": productID}),
             headers: new Headers({

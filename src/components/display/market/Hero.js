@@ -11,7 +11,7 @@ function Hero(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch("https://blue-badge-agora-server.herokuapp.com/user/login", {
+        fetch(`${APIURL}/user/login`, {
             method: "POST",
             body: JSON.stringify({ username: username, password: password }),
             headers: new Headers({

@@ -16,7 +16,7 @@ const DeleteProduct = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/product/' + productId, { 
+    fetch(`${APIURL}/product/${productId}`, { 
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',

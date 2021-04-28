@@ -17,7 +17,7 @@ function MyStore(props) {
 
     const fetcher = () => {
         try {
-            fetch("https://blue-badge-agora-server.herokuapp.com/store/mystore", {
+            fetch(`${APIURL}/store/mystore`, {
                 method: 'GET',
                 headers: new Headers({
                     'Content-Type': 'application/json',
