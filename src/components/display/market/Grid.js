@@ -35,11 +35,7 @@ function Grid(props) {
             .then((res) => res.json())
             .then((data) => console.log(data));
     }
-
-
-
-
-
+    
     const populateProduct = () => {
         return (productInfo.splice(0, 8).map((item, index) => {
             return (
@@ -63,7 +59,6 @@ function Grid(props) {
         getProducts();
     }, [])
 
-
     return (
         <div>
             <Container className="containerFull">
@@ -78,6 +73,5 @@ function Grid(props) {
         </div>
     );
 }
-
 
 export default Grid;

@@ -29,8 +29,6 @@ function Auth(props) {
     setModal(!modal);
   }
 
-       //SIGNUP
-
   const handleSignUp = (e) => {
     e.preventDefault();
     fetch('https://blue-badge-agora-server.herokuapp.com/user/register', {
@@ -76,7 +74,6 @@ function Auth(props) {
       <Modal isOpen={modal} toggle={toggle} className={Login}>
         <ModalHeader>
           <Button onClick={()=> setLogin(!login)}>Login/Sign Up</Button>
-          
 
         </ModalHeader>
         {login ? 
@@ -180,7 +177,6 @@ function Auth(props) {
           </ModalBody>
           <ModalFooter>
           <Button onClick={clearToken}>Logout</Button>
-            
           </ModalFooter>
         </div>
 

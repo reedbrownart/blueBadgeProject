@@ -10,7 +10,8 @@ function AddProduct(props) {
     buttonLabel,
     className,
     token,
-    userId
+    storeID,
+    fetcher
   } = props;
 
   const [storeName, setStoreName] = useState('');
@@ -22,7 +23,7 @@ function AddProduct(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/store/' + userId, {
+    fetch('https://blue-badge-agora-server.herokuapp.com/store/' + storeID, {
       method: 'PUT',
       body: JSON.stringify({ storeName, storeLocation, storeDescription }),
       headers: new Headers({
@@ -30,9 +31,13 @@ function AddProduct(props) {
         'Authorization': token
       })
     })
-      .then((res) => res.json())
+      .then((res) => {
+        console.log("it is fetching")
+        return res.json()})
       .then((logData) => {
         console.log(logData);
+        fetcher();
+        toggle();
       })
   }
 
@@ -59,7 +64,7 @@ function AddProduct(props) {
               <Input type="textarea" name='storeDescription' value={storeDescription}
                 onChange={(e) => setStoreDescription(e.target.value)} />
             </FormGroup>
-            <Button type="submit" color="primary" onClick={toggle}>Confirm store changes</Button>{' '}
+            <Button type="submit" color="primary" onClick={handleSubmit}>Confirm store changes</Button>{' '}
             <Button color="secondary" onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>

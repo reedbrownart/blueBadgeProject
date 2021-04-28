@@ -4,9 +4,8 @@ import { Container, Row, Col, Form, FormGroup, Input, Label, Button } from "reac
 
 
 function Hero(props) {
-
     const { updateToken } = props;
-
+  
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 

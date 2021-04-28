@@ -13,10 +13,6 @@ function ShoppingCart(props) {
   const [shoppingCart, setShoppingCart] = useState([]);
   const [productsArray, setProductsArray] = useState([]);
 
-  
-    
-  
-
   async function fetchShoppingCart(e) {
     e.preventDefault();
 
@@ -27,7 +23,6 @@ function ShoppingCart(props) {
     toggle();
   }
  
-
   useEffect(() => {
      shoppingCart.map(productID => {
       fetch(`https://blue-badge-agora-server.herokuapp.com/product/${productID}`)
@@ -35,7 +30,6 @@ function ShoppingCart(props) {
         .then((data) => setProductsArray(productsArray => [...productsArray, data[0]]))
    })}, [shoppingCart])
    console.log(productsArray);
-
 
    function mappingCart() {
     return(productsArray.map((sci, index) => {
@@ -46,10 +40,6 @@ function ShoppingCart(props) {
             <h5>Price: ${sci.price}</h5>
         </div>
       )}))}
-
-
-//CHECKOUT//
-
 
    const checkOut = () => {
     fetch("https://blue-badge-agora-server.herokuapp.com/user/checkout/1", {
@@ -62,8 +52,7 @@ function ShoppingCart(props) {
         .then((data) => console.log(data));
         alert("Thank you for shopping with Agora!")
   } 
-
-
+   
   return (
     <div>
       <Button color="danger" onClick={fetchShoppingCart}>
@@ -72,7 +61,7 @@ function ShoppingCart(props) {
       <Modal isOpen={modal} toggle={toggle} className={ShoppingCart}>
         <ModalHeader toggle={toggle}>Shopping Cart</ModalHeader>
         <ModalBody>
-
+    
         {mappingCart()}
 
         </ModalBody>
