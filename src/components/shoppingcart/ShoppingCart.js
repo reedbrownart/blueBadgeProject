@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Product from "../maincomponents/Product";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label } from "reactstrap";
+import APIURL from './helpers/environment';
 
 function ShoppingCart(props) {
   const { buttonLabel, className, token } = props;
@@ -16,7 +17,7 @@ function ShoppingCart(props) {
   async function fetchShoppingCart(e) {
     e.preventDefault();
 
-    fetch(`https://blue-badge-agora-server.herokuapp.com/user/returnshoppingcart/`, {
+    fetch(`${APIURL}/user/returnshoppingcart/`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -31,7 +32,7 @@ function ShoppingCart(props) {
 
   useEffect(() => {
     shoppingCart.map(productID => {
-      fetch(`https://blue-badge-agora-server.herokuapp.com/product/${productID}`)
+      fetch(`${APIURL}/product/${productID}`)
         .then((res) => res.json())
         .then((data) => setProductsArray(productsArray => [...productsArray, data[0]]))
     })
@@ -51,7 +52,7 @@ function ShoppingCart(props) {
   }
 
   const checkOut = () => {
-    fetch("https://blue-badge-agora-server.herokuapp.com/user/checkout/", {
+    fetch(`${APIURL}/user/checkout/`, {
       method: 'PUT',
       headers: new Headers({
         'Content-Type': 'application/json',

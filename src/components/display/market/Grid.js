@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Card, CardText, CardBody, CardImg, CardTitle, CardSubtitle, Button } from "reactstrap";
-import "./market.css"
+import "./market.css";
+import APIURL from './helpers/environment';
 
 function Grid(props) {
 

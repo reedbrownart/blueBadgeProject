@@ -3,6 +3,7 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
   Label, Input
 } from 'reactstrap';
+import APIURL from './helpers/environment';
 
 const EditProduct = (props) => {
   const {
