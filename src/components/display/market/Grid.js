@@ -21,7 +21,25 @@ function Grid(props) {
             });
     }
 
-    
+    const addToCart = (productID) => {
+        //e.preventDefault();
+        console.log(productID)
+        fetch("https://blue-badge-agora-server.herokuapp.com/user/addtocart/1", {
+            method: "PUT",
+            body: JSON.stringify({"productID": productID}),
+            headers: new Headers({
+                "Content-Type": "application/json"
+                
+            })
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+    }
+
+
+
+
+
     const populateProduct = () => {
         return (productInfo.splice(0, 8).map((item, index) => {
             return (
@@ -31,9 +49,9 @@ function Grid(props) {
                         <CardTitle tag="h5">{item.productName}</CardTitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">${item.price}</CardSubtitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">{item.stock}</CardSubtitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted">{item.Id}</CardSubtitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted">{item.id}</CardSubtitle>
                         <CardText>{item.description}</CardText>
-                        <Button>Add to Cart</Button>
+                        <Button onClick={() => {addToCart(item.id)}}>Add to Cart</Button>
                     </CardBody>
                 </Card>
             )
