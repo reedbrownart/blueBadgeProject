@@ -88,7 +88,7 @@ const StoreGrid = (props) => {
     ];
 
     const populateStore = () => {
-        return (exampleArray.map((item, index) => {
+        return (exampleArray.splice(0,12).map((item, index) => {
             return(
             <Card key={index} className="w-25" >
                 <CardImg className = "cardImage" top width="30%" src={item.imageURL} alt="Card image cap" />
