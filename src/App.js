@@ -19,12 +19,18 @@ function App(props) {
     setSessionToken(localStorage.getItem("token"))
   }
 
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken('');
+  }
+
   return (
     <div className="App">
       <Navbar 
         setIsMarket = {setIsMarket}
         setIsMyStore = {setIsMyStore}
-        updateToken = {updateToken}/>
+        updateToken = {updateToken}
+        clearToken = {clearToken}/>
       <Display 
         isMarket = {isMarket} 
         isMyStore = {isMyStore}
