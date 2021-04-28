@@ -9,7 +9,8 @@ function CreateStore(props) {
   const {
     buttonLabel,
     className,
-    token
+    token,
+    fetcher
   } = props;
 
   const [storeName, setStoreName] = useState('');
@@ -29,9 +30,13 @@ function CreateStore(props) {
         'Authorization': token
       })
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then((res) => {
+        //console.log("It is getting the fetch...")
+        return res.json()})
+      .then((logData) => {
+        //console.log(logData);
+        fetcher();
+        toggle();
       })
   }
 
@@ -58,7 +63,7 @@ function CreateStore(props) {
               <Input type="textarea" name='storeDescription' value={storeDescription}
                 onChange={(e) => setStoreDescription(e.target.value)} />
             </FormGroup>
-            <Button type="submit" color="primary" onClick={toggle}>Create store</Button>{' '}
+            <Button type="submit" color="primary" onClick={handleSubmit}>Create store</Button>{' '}
             <Button color="secondary" onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>

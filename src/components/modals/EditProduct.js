@@ -35,6 +35,7 @@ const EditProduct = (props) => {
       .then((res) => res.json())
       .then((logData) => {
         console.log(logData);
+        fetcher();
       })
   }
 
@@ -67,7 +68,7 @@ const EditProduct = (props) => {
                 onChange={(e) => setStock(e.target.value)} />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor='imageURL'>Stock</Label>
+              <Label htmlFor='imageURL'>Image URL</Label>
               <Input name='imageURL' value={imageURL}
                 onChange={(e) => setImageURL(e.target.value)} />
             </FormGroup>

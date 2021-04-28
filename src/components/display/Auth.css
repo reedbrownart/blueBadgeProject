@@ -9,3 +9,14 @@ input {
     margin-top: 1em;
     font-size: 18px;
 }
+.Modal {
+ background-color: #f7f9dc;
+}
+
+#primary {
+    background-color: #02c39a !important;
+}
+
+#secondary {
+    background-color: #00a896 !important;
+}

@@ -10,7 +10,8 @@ function AddProduct(props) {
     buttonLabel,
     className,
     token,
-    userId
+    storeID,
+    fetcher
   } = props;
 
   const [productName, setProductName] = useState('');
@@ -24,18 +25,25 @@ function AddProduct(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/product/create' + userId, {
+    fetch(`https://blue-badge-agora-server.herokuapp.com/product/create/${storeID}`, {
       method: 'POST',
-      body: JSON.stringify({ productName, price, description, stock, imageURL }),
+      body: JSON.stringify({ productName, price, description, stock }),
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': token
       })
     })
-      .then((res) => res.json())
+      .then((res) => {
+        console.log("is stuff landing?")
+        console.log("Store Number:",storeID)
+        console.log("Token:", token)
+        return res.json()})
       .then((logData) => {
         console.log(logData);
+        fetcher();
+        toggle();
       })
+      .catch((err) => console.log(err))
   }
 
   const toggle = () => setModal(!modal);
@@ -66,12 +74,7 @@ function AddProduct(props) {
               <Input name='stock' value={stock}
                 onChange={(e) => setStock(e.target.value)} />
             </FormGroup>
-            <FormGroup>
-              <Label htmlFor='imageURL'>Stock</Label>
-              <Input name='imageURL' value={imageURL}
-                onChange={(e) => setImageURL(e.target.value)} />
-            </FormGroup>
-            <Button type="submit" color="primary" onClick={toggle}>Post listing</Button>{' '}
+            <Button type="submit" color="primary" onClick={handleSubmit}>Post listing</Button>{' '}
             <Button color="secondary" onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>

@@ -8,7 +8,9 @@ function Navbar(props) {
     const {
         setIsMarket,
         setIsMyStore,
-        updateToken
+        updateToken,
+        clearToken,
+        token
     } = props;
 
     const loadMarket = (e) => {
@@ -23,8 +25,8 @@ function Navbar(props) {
 
     return(
         <div className = "navbar">
-            <ShoppingCart buttonLabel = {"Cart"} className = {"shoppingCart"}/>
-            <Auth buttonLabel = {"Login / Signup"} className = {"Login"} updateToken={updateToken}/>
+            <ShoppingCart buttonLabel = {"Cart"} className = {"shoppingCart"} token = {token}/>
+            <Auth buttonLabel = {"Login / Signup"} className = {"Login"} updateToken={updateToken} clearToken={clearToken} />
             <Button onClick = {loadMarket}>Market</Button>
             <Button onClick = {loadMyStore}>My Store</Button>
         </div>
