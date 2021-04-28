@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NewStore from './NewStore';
 import ExistingStore from './ExistingStore';
 import StoreGrid from './storeGrid';
-import APIURL from './helpers/environment';
+import APIURL from '../../../helpers/environment';
 
 function MyStore(props) {
     const {token} = props;

@@ -3,7 +3,7 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
   Label, Input
 } from 'reactstrap';
-import APIURL from './helpers/environment';
+import APIURL from '../../helpers/environment';
 
 function CreateStore(props) {
 

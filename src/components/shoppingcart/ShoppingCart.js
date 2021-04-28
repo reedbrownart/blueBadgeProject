@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Product from "../maincomponents/Product";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label } from "reactstrap";
-import APIURL from './helpers/environment';
+import APIURL from '../../helpers/environment';
 
 function ShoppingCart(props) {
   const { buttonLabel, className, token } = props;

@@ -12,7 +12,7 @@ import {
   Input,
 } from "reactstrap";
 
-import APIURL from './helpers/environment';
+import APIURL from '../../helpers/environment';
 
 function Auth(props) {
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Button, Modal, ModalHeader, ModalBody, Form} from 'reactstrap';
-import APIURL from './helpers/environment';
+import APIURL from '../../helpers/environment';
 
 function DeleteStore(props) {
 
