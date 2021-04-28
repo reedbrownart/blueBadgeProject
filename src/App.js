@@ -28,7 +28,8 @@ function App(props) {
       <Display 
         isMarket = {isMarket} 
         isMyStore = {isMyStore}
-        updateToken = {updateToken} />
+        updateToken = {updateToken}
+        token = {sessionToken} />
     </div>
   );
 }
