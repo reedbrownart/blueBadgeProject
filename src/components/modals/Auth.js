@@ -14,7 +14,7 @@ import {
 
 function Auth(props) {
 
-  const { buttonLabel, Login, updateToken } = props;
+  const { buttonLabel, Login, updateToken, clearToken } = props;
 
   const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
@@ -28,8 +28,6 @@ function Auth(props) {
   const toggle = () => {
     setModal(!modal);
   }
-
-       //SIGNUP
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -76,7 +74,7 @@ function Auth(props) {
       <Modal isOpen={modal} toggle={toggle} className={Login}>
         <ModalHeader>
           <Button onClick={()=> setLogin(!login)}>Login/Sign Up</Button>
-          
+
         </ModalHeader>
         {login ? 
         <div>
@@ -87,7 +85,7 @@ function Auth(props) {
                 <Label htmlFor="username">Username:</Label>
                 <Input
                   type="text"
-                  id="email"
+                  id="username"
                   value={username}
                   onChange={(e) => setUserName(e.target.value)}
                 />
@@ -96,8 +94,8 @@ function Auth(props) {
                 <Label htmlFor="password">Password:</Label>
                 <br />
                 <Input
-                  type="text"
-                  id="firstName"
+                  type="password"
+                  id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -111,7 +109,7 @@ function Auth(props) {
             </Form>
           </ModalBody>
           <ModalFooter>
-          
+          <Button onClick={clearToken}>Logout</Button>
           </ModalFooter>
         </div>
 
@@ -154,7 +152,7 @@ function Auth(props) {
                 <Label htmlFor="username">Username:</Label>
                 <Input
                   type="text"
-                  id="email"
+                  id="username"
                   value={username}
                   onChange={(e) => setUserName(e.target.value)}
                 />
@@ -163,23 +161,22 @@ function Auth(props) {
                 <Label htmlFor="password">Password:</Label>
                 <br />
                 <Input
-                  type="text"
-                  id="firstName"
+                  type="password"
+                  id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </FormGroup>
-              <Button color="primary" type="submit">
+              <Button color="primary" id="primary" type="submit">
               Signup
             </Button>{" "}
-            <Button color="secondary" onClick={toggle}>
+            <Button color="secondary" id="secondary" onClick={toggle}>
               Cancel
             </Button>
             </Form>
           </ModalBody>
           <ModalFooter>
-         
-            
+          <Button onClick={clearToken}>Logout</Button>
           </ModalFooter>
         </div>
 

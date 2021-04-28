@@ -74,11 +74,6 @@ function AddProduct(props) {
               <Input name='stock' value={stock}
                 onChange={(e) => setStock(e.target.value)} />
             </FormGroup>
-            {/* <FormGroup>
-              <Label htmlFor='imageURL'>Stock</Label>
-              <Input name='imageURL' value={imageURL}
-                onChange={(e) => setImageURL(e.target.value)} />
-            </FormGroup> */}
             <Button type="submit" color="primary" onClick={handleSubmit}>Post listing</Button>{' '}
             <Button color="secondary" onClick={toggle}>Cancel</Button>
           </Form>

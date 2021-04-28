@@ -5,20 +5,12 @@ import EditProduct from '../../modals/EditProduct';
 import DeleteProduct from '../../modals/DeleteProduct';
 import './mystore.css';
 
-
 const StoreGrid = (props) => {
 
     const {
         fetcher,
         products
         } = props;
-
-
-    //REQUESTING CHANGES TO EditProduct.js
-    //Final field should be a URL -> this way, user's could still use images from online or hosting services
-    //Fetcher is imported from above. Needs to be taken out of comment in returned component section below.
-        //Add fetcher to 2nd promise so that StoreGrid will update w/ each update
-
 
     let storeItems = '';
 

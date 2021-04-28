@@ -6,7 +6,7 @@ function Market(props) {
     return(
             <div>
                 <Hero updateToken = {props.updateToken}/>
-                {/* <Grid /> */}
+                <Grid />
             </div>
     );
 }

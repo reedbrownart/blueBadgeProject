@@ -1,49 +1,72 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Product from "../maincomponents/Product";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label } from "reactstrap";
 
 function ShoppingCart(props) {
   const { buttonLabel, className } = props;
+
+  const userToken = localStorage.getItem("token");
+
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
-  const [cartItems, setCartItems] = useState([]);
+  const [shoppingCart, setShoppingCart] = useState([]);
+  const [productsArray, setProductsArray] = useState([]);
 
-  // const addItem = (product) => {
-  //     const existing = cartItems.find(product.id);
-  //     if(existing) {
-  //         setCartItems(cartItems.map(product.id ? {...existing, qty: existing.qty +1} : product))
-  //     } else {
-  //         setCartItems([...cartItems, {...product, qty: 1}]);
-  //     }
-  // };
-  // const removeItem = (product) => {
-  //     const existing = cartItems.find(product.id);
-  //     if (existing.qty >= 1) {
-  //         setCartItems(cartItems.filter((x)=>
-  //         product.id ? {...existing, qty: existing.qty - 1} : product
-  //         ));
-  //     }
-  // };
+  async function fetchShoppingCart(e) {
+    e.preventDefault();
 
+    fetch(`https://blue-badge-agora-server.herokuapp.com/user/returnshoppingcart/1`)
+      .then((res) => res.json())
+      .then((data) => setShoppingCart(data.shoppingCartArray))
+
+    toggle();
+  }
+ 
+  useEffect(() => {
+     shoppingCart.map(productID => {
+      fetch(`https://blue-badge-agora-server.herokuapp.com/product/${productID}`)
+        .then((res) => res.json())
+        .then((data) => setProductsArray(productsArray => [...productsArray, data[0]]))
+   })}, [shoppingCart])
+   console.log(productsArray);
+
+   function mappingCart() {
+    return(productsArray.map((sci, index) => {
+      return(
+        <div key={index}>
+            <h3>{sci.productName}</h3>
+            <img src= {sci.imageURL} width="100"/>  
+            <h5>Price: ${sci.price}</h5>
+        </div>
+      )}))}
+
+   const checkOut = () => {
+    fetch("https://blue-badge-agora-server.herokuapp.com/user/checkout/1", {
+    method: 'PUT',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    })
+  })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+        alert("Thank you for shopping with Agora!")
+  } 
+   
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
+      <Button color="danger" onClick={fetchShoppingCart}>
         {buttonLabel}
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={ShoppingCart}>
         <ModalHeader toggle={toggle}>Shopping Cart</ModalHeader>
         <ModalBody>
-          {cartItems.length === 0 && <div>Cart is empty</div>}
-          {cartItems.map((product) => (
-            <div className={product.id} id="row">
-              <div className="col=2">{product.name}</div>
-              <div className="col-2"></div>
-            </div>
-          ))}
+    
+        {mappingCart()}
+
         </ModalBody>
         <ModalFooter>
-          <Button onClick={() => alert("Thank you for shopping with Agora!")}>
+          <Button onClick={() => checkOut}>
             Checkout
           </Button>
           <Button color="secondary" onClick={toggle}>

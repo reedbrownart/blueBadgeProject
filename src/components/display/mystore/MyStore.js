@@ -15,7 +15,6 @@ function MyStore(props) {
     const [products, setProducts] = useState([]);
     const [userOnPage, setUserOnPage] = useState('');
 
-
     const fetcher = () => {
         try {
             fetch("https://blue-badge-agora-server.herokuapp.com/store/mystore", {

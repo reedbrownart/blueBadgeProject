@@ -4,23 +4,23 @@ import { Container, Row, Col, Form, FormGroup, Input, Label, Button } from "reac
 
 
 function Hero(props) {
-
+    const { updateToken } = props;
+  
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        fetch("http://localhost:3000/user/login", {
+        fetch("https://blue-badge-agora-server.herokuapp.com/user/login", {
             method: "POST",
             body: JSON.stringify({ username: username, password: password }),
             headers: new Headers({
                 "Content-Type": "application/json"
             })
         }).then(
-            (response => response.text())
+            (response => response.json())
         ).then((data) => {
-            props.updateToken(data.sessionToken);
+            updateToken(data.token);
         }).catch((error) => (console.log(error)))
     }
 

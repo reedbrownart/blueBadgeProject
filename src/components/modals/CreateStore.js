@@ -4,7 +4,7 @@ import {
   Label, Input
 } from 'reactstrap';
 
-function AddProduct(props) {
+function CreateStore(props) {
 
   const {
     buttonLabel,
@@ -31,10 +31,10 @@ function AddProduct(props) {
       })
     })
       .then((res) => {
-        console.log("It is getting the fetch...")
+        //console.log("It is getting the fetch...")
         return res.json()})
       .then((logData) => {
-        console.log(logData);
+        //console.log(logData);
         fetcher();
         toggle();
       })
@@ -72,4 +72,4 @@ function AddProduct(props) {
   );
 }
 
-export default AddProduct;
+export default CreateStore;
