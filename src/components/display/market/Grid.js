@@ -4,6 +4,8 @@ import "./market.css"
 
 function Grid(props) {
 
+    const { token } = props;
+
 
     const [productInfo, setProductInfo] = useState([]);
 
@@ -24,16 +26,17 @@ function Grid(props) {
     const addToCart = (productID) => {
         //e.preventDefault();
         console.log(productID)
-        fetch("https://blue-badge-agora-server.herokuapp.com/user/addtocart/1", {
+        fetch("https://blue-badge-agora-server.herokuapp.com/user/addtocart/", {
             method: "PUT",
             body: JSON.stringify({"productID": productID}),
             headers: new Headers({
-                "Content-Type": "application/json"
-                
+                "Content-Type": "application/json",
+                "Authorization": token
             })
         })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err))
     }
     
     const populateProduct = () => {

@@ -30,7 +30,8 @@ function App(props) {
         setIsMarket = {setIsMarket}
         setIsMyStore = {setIsMyStore}
         updateToken = {updateToken}
-        clearToken = {clearToken}/>
+        clearToken = {clearToken}
+        token = {sessionToken}/>
       <Display 
         isMarket = {isMarket} 
         isMyStore = {isMyStore}
