@@ -14,7 +14,7 @@ import {
 
 function Auth(props) {
 
-  const { buttonLabel, Login, updateToken } = props;
+  const { buttonLabel, Login, updateToken, clearToken } = props;
 
   const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
@@ -77,6 +77,7 @@ function Auth(props) {
         <ModalHeader>
           <Button onClick={()=> setLogin(!login)}>Login/Sign Up</Button>
           
+
         </ModalHeader>
         {login ? 
         <div>
@@ -87,7 +88,7 @@ function Auth(props) {
                 <Label htmlFor="username">Username:</Label>
                 <Input
                   type="text"
-                  id="email"
+                  id="username"
                   value={username}
                   onChange={(e) => setUserName(e.target.value)}
                 />
@@ -96,8 +97,8 @@ function Auth(props) {
                 <Label htmlFor="password">Password:</Label>
                 <br />
                 <Input
-                  type="text"
-                  id="firstName"
+                  type="password"
+                  id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -111,7 +112,7 @@ function Auth(props) {
             </Form>
           </ModalBody>
           <ModalFooter>
-          
+          <Button onClick={clearToken}>Logout</Button>
           </ModalFooter>
         </div>
 
@@ -154,7 +155,7 @@ function Auth(props) {
                 <Label htmlFor="username">Username:</Label>
                 <Input
                   type="text"
-                  id="email"
+                  id="username"
                   value={username}
                   onChange={(e) => setUserName(e.target.value)}
                 />
@@ -163,8 +164,8 @@ function Auth(props) {
                 <Label htmlFor="password">Password:</Label>
                 <br />
                 <Input
-                  type="text"
-                  id="firstName"
+                  type="password"
+                  id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -178,7 +179,7 @@ function Auth(props) {
             </Form>
           </ModalBody>
           <ModalFooter>
-         
+          <Button onClick={clearToken}>Logout</Button>
             
           </ModalFooter>
         </div>

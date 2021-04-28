@@ -6,7 +6,8 @@ function Display(props) {
     const {
         isMarket,
         isMyStore,
-        updateToken
+        updateToken,
+        token
     } = props;
 
     return(
@@ -14,7 +15,7 @@ function Display(props) {
             {isMarket
                 ? <Market updateToken = {updateToken} />
             : isMyStore
-                ? <MyStore />
+                ? <MyStore token = {token}/>
                 : <></>}
         </div>
     );
