@@ -3,7 +3,7 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
   Label, Input
 } from 'reactstrap';
-import APIURL from '../../helpers/environment';
+import REACT_APP_API_URL from '../../helpers/environment';
 
 function AddProduct(props) {
 
@@ -24,7 +24,7 @@ function AddProduct(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${APIURL}/store/${storeID}`, {
+    fetch(`${REACT_APP_API_URL}/store/${storeID}`, {
       method: 'PUT',
       body: JSON.stringify({ storeName, storeLocation, storeDescription }),
       headers: new Headers({

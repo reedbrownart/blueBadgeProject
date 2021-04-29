@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NewStore from './NewStore';
 import ExistingStore from './ExistingStore';
 import StoreGrid from './storeGrid';
-import APIURL from '../../../helpers/environment';
+import REACT_APP_API_URL from '../../../helpers/environment';
 
 function MyStore(props) {
     const {token} = props;
@@ -17,7 +17,7 @@ function MyStore(props) {
 
     const fetcher = () => {
         try {
-            fetch(`${APIURL}/store/mystore`, {
+            fetch(`${REACT_APP_API_URL}/store/mystore`, {
                 method: 'GET',
                 headers: new Headers({
                     'Content-Type': 'application/json',
