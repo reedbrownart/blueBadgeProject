@@ -12,6 +12,7 @@ import {
   Input,
 } from "reactstrap";
 
+
 function Auth(props) {
 
   const { buttonLabel, Login, updateToken, clearToken } = props;
@@ -31,7 +32,7 @@ function Auth(props) {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/user/register', {
+    fetch(`${process.env.REACT_APP_API_URL}/user/register`, {
       method: 'POST',
       body: JSON.stringify({
         username: username,
@@ -54,7 +55,7 @@ function Auth(props) {
   }
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/user/login', {
+    fetch(`${process.env.REACT_APP_API_URL}/user/login`, {
       method: 'POST',
       body: JSON.stringify({ username: username, password: password }),
       headers: new Headers({

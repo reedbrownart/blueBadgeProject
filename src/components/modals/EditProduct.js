@@ -24,7 +24,7 @@ const EditProduct = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/product/' + productId, { 
+    fetch(`${process.env.REACT_APP_API_URL}/product/${productId}`, { 
       method: 'PUT',
       body: JSON.stringify({ productName, price, description, stock, imageURL }),
       headers: new Headers({

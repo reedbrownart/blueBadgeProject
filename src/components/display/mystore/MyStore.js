@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewStore from './NewStore';
 import ExistingStore from './ExistingStore';
-
 import StoreGrid from './storeGrid';
 
 function MyStore(props) {
@@ -17,7 +16,7 @@ function MyStore(props) {
 
     const fetcher = () => {
         try {
-            fetch("https://blue-badge-agora-server.herokuapp.com/store/mystore", {
+            fetch(`${process.env.REACT_APP_API_URL}/store/mystore`, {
                 method: 'GET',
                 headers: new Headers({
                     'Content-Type': 'application/json',

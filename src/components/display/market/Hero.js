@@ -11,7 +11,7 @@ function Hero(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch("https://blue-badge-agora-server.herokuapp.com/user/login", {
+        fetch(`${process.env.REACT_APP_API_URL}/user/login`, {
             method: "POST",
             body: JSON.stringify({ username: username, password: password }),
             headers: new Headers({
@@ -46,7 +46,7 @@ function Hero(props) {
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="password">Password</Label>
-                                <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
+                                <Input onChange={(e) => setPassword(e.target.value)} type="password" value={password} />
                             </FormGroup>
                             <Button type="submit">Login</Button>
                         </Form>

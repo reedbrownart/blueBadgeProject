@@ -22,7 +22,7 @@ function CreateStore(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/store/create', {
+    fetch(`${process.env.REACT_APP_API_URL}/store/create`, {
       method: 'POST',
       body: JSON.stringify({ storeName, storeLocation, storeDescription }),
       headers: new Headers({

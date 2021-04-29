@@ -16,7 +16,7 @@ function DeleteStore(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://blue-badge-agora-server.herokuapp.com/store/' + storeID, {
+    fetch(`${process.env.REACT_APP_API_URL}/store/${storeID}`, {
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
