@@ -12,8 +12,6 @@ import {
   Input,
 } from "reactstrap";
 
-import REACT_APP_API_URL from '../../helpers/environment';
-
 function Auth(props) {
 
   const { buttonLabel, Login, updateToken, clearToken } = props;
@@ -33,7 +31,7 @@ function Auth(props) {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    fetch(`${REACT_APP_API_URL}/user/register`, {
+    fetch(`${process.env.REACT_APP_API_URL}/user/register`, {
       method: 'POST',
       body: JSON.stringify({
         username: username,
@@ -56,7 +54,7 @@ function Auth(props) {
   }
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch(`${REACT_APP_API_URL}/user/login`, {
+    fetch(`${process.env.REACT_APP_API_URL}/user/login`, {
       method: 'POST',
       body: JSON.stringify({ username: username, password: password }),
       headers: new Headers({

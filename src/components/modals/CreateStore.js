@@ -3,7 +3,6 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
   Label, Input
 } from 'reactstrap';
-import REACT_APP_API_URL from '../../helpers/environment';
 
 function CreateStore(props) {
 
@@ -23,7 +22,7 @@ function CreateStore(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${REACT_APP_API_URL}/store/create`, {
+    fetch(`${process.env.REACT_APP_API_URL}/store/create`, {
       method: 'POST',
       body: JSON.stringify({ storeName, storeLocation, storeDescription }),
       headers: new Headers({

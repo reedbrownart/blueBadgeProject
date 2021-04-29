@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Product from "../maincomponents/Product";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label } from "reactstrap";
-import REACT_APP_API_URL from '../../helpers/environment';
 
 function ShoppingCart(props) {
   const { buttonLabel, className, token } = props;
@@ -17,7 +16,7 @@ function ShoppingCart(props) {
   async function fetchShoppingCart(e) {
     e.preventDefault();
 
-    fetch(`${REACT_APP_API_URL}/user/returnshoppingcart/`, {
+    fetch(`${process.env.REACT_APP_API_URL}/user/returnshoppingcart/`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -32,7 +31,7 @@ function ShoppingCart(props) {
 
   useEffect(() => {
     shoppingCart.map(productID => {
-      fetch(`${REACT_APP_API_URL}/product/${productID}`)
+      fetch(`${process.env.REACT_APP_API_URL}/product/${productID}`)
         .then((res) => res.json())
         .then((data) => setProductsArray(productsArray => [...productsArray, data[0]]))
     })
@@ -52,7 +51,7 @@ function ShoppingCart(props) {
   }
 
   const checkOut = () => {
-    fetch(`${REACT_APP_API_URL}/user/checkout/`, {
+    fetch(`${process.env.REACT_APP_API_URL}/user/checkout/`, {
       method: 'PUT',
       headers: new Headers({
         'Content-Type': 'application/json',

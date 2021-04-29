@@ -3,7 +3,6 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
   Label, Input
 } from 'reactstrap';
-import REACT_APP_API_URL from '../../helpers/environment';
 
 const EditProduct = (props) => {
   const {
@@ -25,7 +24,7 @@ const EditProduct = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${REACT_APP_API_URL}/product/${productId}`, { 
+    fetch(`${process.env.REACT_APP_API_URL}/product/${productId}`, { 
       method: 'PUT',
       body: JSON.stringify({ productName, price, description, stock, imageURL }),
       headers: new Headers({

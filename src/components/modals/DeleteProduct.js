@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {Button, Modal, ModalHeader, ModalBody, Form} from 'reactstrap';
-import REACT_APP_API_URL from '../../helpers/environment';
 
 const DeleteProduct = (props) => {
   const {
@@ -17,7 +16,7 @@ const DeleteProduct = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${REACT_APP_API_URL}/product/${productId}`, { 
+    fetch(`${process.env.REACT_APP_API_URL}/product/${productId}`, { 
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',

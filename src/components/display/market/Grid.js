@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Card, CardText, CardBody, CardImg, CardTitle, CardSubtitle, Button } from "reactstrap";
 import "./market.css";
-import REACT_APP_API_URL from '../../../helpers/environment';
 
 function Grid(props) {
 
@@ -11,7 +10,7 @@ function Grid(props) {
     const [productInfo, setProductInfo] = useState([]);
 
     const getProducts = () => {
-        fetch(`${REACT_APP_API_URL}/product/`, {
+        fetch(`${process.env.REACT_APP_API_URL}/product/`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json"
@@ -27,7 +26,7 @@ function Grid(props) {
     const addToCart = (productID) => {
         //e.preventDefault();
         console.log(productID)
-        fetch(`${REACT_APP_API_URL}/user/addtocart/`, {
+        fetch(`${process.env.REACT_APP_API_URL}/user/addtocart/`, {
             method: "PUT",
             body: JSON.stringify({"productID": productID}),
             headers: new Headers({
