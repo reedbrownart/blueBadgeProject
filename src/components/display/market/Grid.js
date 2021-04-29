@@ -20,7 +20,6 @@ function Grid(props) {
             .then((res) => res.json())
             .then((data) => {
                 setProductInfo(data);
-
             });
     }
 
@@ -29,7 +28,7 @@ function Grid(props) {
         console.log(productID)
         fetch(`${APIURL}/user/addtocart/`, {
             method: "PUT",
-            body: JSON.stringify({"productID": productID}),
+            body: JSON.stringify({ "productID": productID }),
             headers: new Headers({
                 "Content-Type": "application/json",
                 "Authorization": token
@@ -39,7 +38,7 @@ function Grid(props) {
             .then((data) => console.log(data))
             .catch((err) => console.log(err))
     }
-    
+
     const populateProduct = () => {
         return (productInfo.splice(0, 8).map((item, index) => {
             return (
@@ -51,7 +50,7 @@ function Grid(props) {
                         <CardSubtitle tag="h6" className="mb-2 text-muted">{item.stock}</CardSubtitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">{item.id}</CardSubtitle>
                         <CardText>{item.description}</CardText>
-                        <Button onClick={() => {addToCart(item.id)}}>Add to Cart</Button>
+                        <Button onClick={() => { addToCart(item.id) }}>Add to Cart</Button>
                     </CardBody>
                 </Card>
             )
@@ -61,7 +60,7 @@ function Grid(props) {
 
     useEffect(() => {
         getProducts();
-    }, [])
+    }, [token])
 
     return (
         <div>
