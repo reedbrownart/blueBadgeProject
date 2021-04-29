@@ -30,15 +30,18 @@ function ShoppingCart(props) {
   }
 
   useEffect(() => {
+    setProductsArray([])
     shoppingCart.map(productID => {
       fetch(`https://blue-badge-agora-server.herokuapp.com/product/${productID}`)
         .then((res) => res.json())
+        
         .then((data) => setProductsArray(productsArray => [...productsArray, data[0]]))
     })
   }, [shoppingCart])
-  console.log(productsArray);
+  
 
   function mappingCart() {
+   
     return (productsArray.map((sci, index) => {
       return (
         <div key={index}>
@@ -46,9 +49,13 @@ function ShoppingCart(props) {
           <img src={sci.imageURL} width="100" />
           <h5>Price: ${sci.price}</h5>
         </div>
-      )
-    }))
+      ) 
+    } 
+    ))
   }
+  
+
+
 
   const checkOut = () => {
     fetch("https://blue-badge-agora-server.herokuapp.com/user/checkout/", {
