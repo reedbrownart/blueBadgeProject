@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/navbar/Navbar';
 import Display from './components/display/Display';
-import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
 import style from './App.css';
 
 

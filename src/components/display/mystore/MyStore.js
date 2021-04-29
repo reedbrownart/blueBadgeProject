@@ -25,7 +25,7 @@ function MyStore(props) {
             })
                 .then((response) => response.json())
                 .then((data) => {  
-                    if (data.storeId == undefined) {return setHasStore(false)} else {
+                    if (data.storeId === undefined) {return setHasStore(false)} else {
                     return (setProducts(data.products),
                         setHasStore(true),
                         setUserOnPage(data.userId),
@@ -49,18 +49,18 @@ function MyStore(props) {
         fetcher()
     }, [token] );
 
-    function checkStates() {
-        console.log("Has Store:", hasStore); 
-        console.log("Products:", products);
-        console.log("Store Number:", storeID);
-        console.log("UserId:", userOnPage);
-        console.log("Token:", token)
-    }
+    // function checkStates() {
+    //     console.log("Has Store:", hasStore); 
+    //     console.log("Products:", products);
+    //     console.log("Store Number:", storeID);
+    //     console.log("UserId:", userOnPage);
+    //     console.log("Token:", token)
+    // }
 
     return(
         <>
-            <button onClick={fetcher}>RUN FETCH</button>
-            <button onClick={checkStates}>CHECK STATES</button>
+            {/* <button onClick={fetcher}>RUN FETCH</button>
+            <button onClick={checkStates}>CHECK STATES</button> */}
             {hasStore ? <ExistingStore token={token} fetcher={fetcher} storeID={storeID} storeName={storeName} storeLocation={storeLocation} storeDescription={storeDescription} />
                       : <NewStore token={token} fetcher={fetcher}/>}
             {hasStore ? <StoreGrid fetcher={fetcher} products={products}  /> : <></>}

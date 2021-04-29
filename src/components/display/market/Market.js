@@ -8,7 +8,7 @@ function Market(props) {
     
     return(
             <div>
-                <Hero updateToken = {props.updateToken}/>
+                <Hero updateToken = {props.updateToken} token = {token}/>
                 <Grid token = {token} />
             </div>
     );

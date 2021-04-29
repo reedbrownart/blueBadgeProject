@@ -41,15 +41,15 @@ function Grid(props) {
     const populateProduct = () => {
         return (productInfo.splice(0, 8).map((item, index) => {
             return (
-                <Card key={index} className="w-25">
-                    <CardImg className="cardImage" top width="30%" src={item.imageURL} alt="Card image cap" />
+                <Card key={index} id = "card">
+                    <CardImg className="cardImage" src={item.imageURL} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle tag="h5">{item.productName}</CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted">${item.price}</CardSubtitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted">{item.stock}</CardSubtitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted">{item.id}</CardSubtitle>
+                        <CardTitle tag="h5" id = "productName">{item.productName}</CardTitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted" id = "price">Price: ${item.price}</CardSubtitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted" id = "stock">Stock: {item.stock}</CardSubtitle>
+                        {/* <CardSubtitle tag="h6" className="mb-2 text-muted">Item ID: {item.id}</CardSubtitle> */}
                         <CardText>{item.description}</CardText>
-                        <Button onClick={() => { addToCart(item.id) }}>Add to Cart</Button>
+                        <Button onClick={() => { addToCart(item.id) }} id = "addToCart">Add to Cart</Button>
                     </CardBody>
                 </Card>
             )
@@ -63,12 +63,9 @@ function Grid(props) {
 
     return (
         <div>
-            <Container className="containerFull">
-                <h2>Checkout our featured items of the week</h2>
-                <br />
-                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor!</h5>
-                <br />
-                <Row>
+            <Container id = "grid">
+                <h2 class = "playfair" id = "gridTitle">Checkout our featured items of the week</h2>
+                <Row id = "productGrid">
                     {populateProduct()}
                 </Row>
             </Container>

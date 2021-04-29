@@ -35,15 +35,15 @@ function DeleteStore(props) {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
+      <Button id = "mainButton" onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader>Are you sure you want to delete {storeName}?</ModalHeader>
         <ModalBody>
             <h6>Deleting your store will also delete all of your product listings.</h6>
             <h4>This action <b>CANNOT</b> be undone.</h4>
           <Form>
-            <Button type="submit" color="danger" onClick={handleSubmit}>DELETE My Store</Button>
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button type="submit" id = "mainButton" onClick={handleSubmit}>DELETE My Store</Button>
+            <Button id = "importantButton" onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>
       </Modal>

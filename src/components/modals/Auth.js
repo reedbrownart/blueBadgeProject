@@ -72,12 +72,12 @@ function Auth(props) {
   return (
 
     <div>
-      <Button color="danger" onClick={toggle}>
+      <Button id = "mainButton" onClick={toggle}>
         {buttonLabel}
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={Login}>
         <ModalHeader>
-          <Button onClick={() => setLogin(!login)}>Login/Sign Up</Button>
+          <Button id = "importantButton" onClick={() => setLogin(!login)}>Login/Sign Up</Button>
 
         </ModalHeader>
         {login ?
@@ -104,16 +104,16 @@ function Auth(props) {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </FormGroup>
-                <Button color="primary" type="submit">
+                <Button id = "mainButton" type="submit">
                   Login
             </Button>{" "}
-                <Button color="secondary" onClick={toggle}>
+                <Button id = "importantButton" onClick={toggle}>
                   Cancel
             </Button>
               </Form>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={clearToken}>Logout</Button>
+              <Button id = "importantButton" onClick={clearToken}>Logout</Button>
             </ModalFooter>
           </div>
 
@@ -171,16 +171,16 @@ function Auth(props) {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </FormGroup>
-                  <Button color="primary" id="primary" type="submit">
+                  <Button id = "mainButton" type="submit">
                     Signup
             </Button>{" "}
-                  <Button color="secondary" id="secondary" onClick={toggle}>
+                  <Button id = "importantButton" onClick={toggle}>
                     Cancel
             </Button>
                 </Form>
               </ModalBody>
               <ModalFooter>
-                <Button onClick={clearToken}>Logout</Button>
+                <Button id = "importantButton" onClick={clearToken}>Logout</Button>
               </ModalFooter>
             </div>
 

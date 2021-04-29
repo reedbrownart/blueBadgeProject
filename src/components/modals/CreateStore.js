@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
+  Button, Modal, ModalBody, Form, FormGroup,
   Label, Input
 } from 'reactstrap';
 
@@ -44,7 +44,7 @@ function CreateStore(props) {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
+      <Button id = "mainButton" onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalBody>
           <Form onSubmit={handleSubmit}>
@@ -63,8 +63,8 @@ function CreateStore(props) {
               <Input type="textarea" name='storeDescription' value={storeDescription}
                 onChange={(e) => setStoreDescription(e.target.value)} />
             </FormGroup>
-            <Button type="submit" color="primary" onClick={handleSubmit}>Create store</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button type="submit" id = "mainButton" onClick={handleSubmit}>Create store</Button>{' '}
+            <Button id = "importantButton" onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>
       </Modal>

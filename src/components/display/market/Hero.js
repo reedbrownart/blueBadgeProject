@@ -4,8 +4,8 @@ import { Container, Row, Col, Form, FormGroup, Input, Label, Button } from "reac
 
 
 function Hero(props) {
-    const { updateToken } = props;
-  
+    const { updateToken, token } = props;
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -28,29 +28,31 @@ function Hero(props) {
         <div>
             <Container>
                 <Row>
-                    <Col>
-                        <img width="100%" height="250px" src="https://www.ancient-origins.net/sites/default/files/field/image/Parthenon.jpg" />
+                    <Col className = "heroTitle">
+                        <h1 class="playfair bigHeroFont">Agora Marketplace</h1>
+                        <h4>The only marketplace that doesn't take royalties away from creators</h4>
                     </Col>
-
-                    <Col>
-                        <h1>Agora Marketplace</h1>
-                        <h4>Zee only marketplace that does NOT bloodsuck the artist hard earned monies</h4>
+                </Row>
+                <Row>
+                    <Col className = "parthenon">
+                        <img src="https://lh3.googleusercontent.com/proxy/fLW4Tvdy_KghVjHPvzY1WFscrvANboXrmll0j4h1zCLf-rcisCHP3dZAFUGFHM8IhcnJ0Z9j4ryOCiSZAQU2wVXhKJFzzjg" alt ="parthenon"/>
                     </Col>
-
-                    <Col>
-                        <h3>Login</h3>
-                        <Form onSubmit={handleSubmit}>
-                            <FormGroup>
-                                <Label htmlFor="username">Username</Label>
-                                <Input onChange={(e) => setUsername(e.target.value)} name="username" value={username} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="password">Password</Label>
-                                <Input onChange={(e) => setPassword(e.target.value)} type="password" value={password} />
-                            </FormGroup>
-                            <Button type="submit">Login</Button>
-                        </Form>
-                    </Col>
+                    {!token ?
+                        <Col className = "inputPadding">
+                            <h3>Login</h3>
+                            <Form onSubmit={handleSubmit}>
+                                <FormGroup>
+                                    <Label htmlFor="username">Username</Label>
+                                    <Input onChange={(e) => setUsername(e.target.value)} name="username" value={username} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label htmlFor="password">Password</Label>
+                                    <Input onChange={(e) => setPassword(e.target.value)} type="password" value={password} />
+                                </FormGroup>
+                                <Button type="submit" id="mainButton">Login</Button>
+                            </Form>
+                        </Col>
+                        : <></>}
                 </Row>
             </Container>
             <br />
