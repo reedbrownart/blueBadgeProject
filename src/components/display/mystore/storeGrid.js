@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Row, Col,
-    Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import EditProduct from '../../modals/EditProduct';
 import DeleteProduct from '../../modals/DeleteProduct';
 import './mystore.css';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
+  Button, Modal, ModalBody, Form, FormGroup,
   Label, Input
 } from 'reactstrap';
 
@@ -43,7 +43,7 @@ const EditProduct = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
+      <Button id = "mainButton" onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalBody>
           <Form onSubmit={handleSubmit}>
@@ -73,7 +73,7 @@ const EditProduct = (props) => {
                 onChange={(e) => setImageURL(e.target.value)} />
             </FormGroup>
             <Button type="submit" color="primary" onClick={toggle}>Confirm changes</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button id = "importantButton" onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>
       </Modal>

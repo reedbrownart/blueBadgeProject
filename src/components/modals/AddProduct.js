@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,
+  Button, Modal, ModalBody, Form, FormGroup,
   Label, Input
 } from 'reactstrap';
 
@@ -18,8 +18,6 @@ function AddProduct(props) {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [stock, setStock] = useState('');
-  const [imageURL, setImageURL] = useState('');
-
 
   const [modal, setModal] = useState(false);
 
@@ -50,7 +48,7 @@ function AddProduct(props) {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
+      <Button id = "mainButton" onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalBody>
           <Form onSubmit={handleSubmit}>
@@ -74,8 +72,8 @@ function AddProduct(props) {
               <Input name='stock' value={stock}
                 onChange={(e) => setStock(e.target.value)} />
             </FormGroup>
-            <Button type="submit" color="primary" onClick={handleSubmit}>Post listing</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button type="submit" id = "mainButton" onClick={handleSubmit}>Post listing</Button>{' '}
+            <Button id = "importantButton" onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>
       </Modal>

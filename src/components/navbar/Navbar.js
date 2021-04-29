@@ -25,10 +25,10 @@ function Navbar(props) {
 
     return(
         <div className = "navbar">
-            <ShoppingCart buttonLabel = {"Cart"} className = {"shoppingCart"} token = {token}/>
+            {token ? <ShoppingCart buttonLabel = {"Cart"} className = {"shoppingCart"} token = {token}/> : <></>}
             <Auth buttonLabel = {"Login / Signup"} className = {"Login"} updateToken={updateToken} clearToken={clearToken} />
-            <Button onClick = {loadMarket}>Market</Button>
-            <Button onClick = {loadMyStore}>My Store</Button>
+            <Button id = "mainButton" onClick = {loadMarket}>Market</Button>
+            {token ? <Button id = "mainButton" onClick = {loadMyStore}>My Store</Button> : <></>}
         </div>
     );
 }

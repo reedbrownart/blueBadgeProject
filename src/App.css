@@ -1,29 +1,93 @@
 .App {
-  text-align: center;
+  background-color: #f7f9dc;
+}
+
+body {
+  background-color: #f7f9dc;
 }
 
 .navbar {
-  border: 3px black solid;
-  background-color: turquoise;
+  background-color: #028090;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .display {
-  border: 3px black solid;
-  background-color: lemonchiffon;
+  background-color: #f7f9dc;
+  margin: 20px;
 }
 
 .modalDisplay {
-  border: 3px black solid;
-  background-color: lightskyblue;
+  background-color: #ecebbd
 }
 
+#price {
+  text-align: left !important;
+}
 
+#productName {
+  text-align: center;
+}
 
-.cardImage {
-  width: 50px;
-  height: 50px;
+#card {
+  display: flex;
+  width: 250px;
+  margin: 15px;
+}
+
+#addToCart {
+  align-self: flex-end;
+  background-color: #e4717a;
+}
+
+#productGrid {
+  justify-content: space-between;
+}
+
+#mainButton {
+  background-color: #f7f9dc;
+  color: #028090;
+  border: 2px #028090 solid;
+  margin: 5px;
+  width: 150px;
+}
+
+#importantButton {
+  background-color: #e4717a;
+  margin: 5px;
+  width: 150px;
+}
+
+.playfair {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+
+.sourceSansPro {
+
+}
+
+#gridTitle {
+  font-size: 36pt;
+  text-align: center;
+}
+
+.heroTitle {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.bigHeroFont {
+  font-size: 48pt;
+}
+
+.parthenon {
+  display: flex;
+  justify-content: center;
+}
+
+.inputPadding {
+  margin: 0px 100px;
 }

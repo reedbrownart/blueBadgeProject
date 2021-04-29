@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Product from "../maincomponents/Product";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 function ShoppingCart(props) {
-  const { buttonLabel, className, token } = props;
-
-  const userToken = localStorage.getItem("token");
+  const { buttonLabel, token } = props;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -34,7 +31,6 @@ function ShoppingCart(props) {
     shoppingCart.map(productID => {
       fetch(`${process.env.REACT_APP_API_URL}/product/${productID}`)
         .then((res) => res.json())
-        
         .then((data) => setProductsArray(productsArray => [...productsArray, data[0]]))
     })
   }, [shoppingCart])
@@ -46,7 +42,7 @@ function ShoppingCart(props) {
       return (
         <div key={index}>
           <h3>{sci.productName}</h3>
-          <img src={sci.imageURL} width="100" />
+          <img src={sci.imageURL} width="100" alt = "productImage" />
           <h5>Price: ${sci.price}</h5>
         </div>
       ) 
@@ -74,7 +70,7 @@ function ShoppingCart(props) {
 
   return (
     <div>
-      <Button color="danger" onClick={fetchShoppingCart}>
+      <Button id = "mainButton" onClick={fetchShoppingCart}>
         {buttonLabel}
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={ShoppingCart}>
@@ -88,7 +84,7 @@ function ShoppingCart(props) {
           <Button onClick={() => checkOut()}>
             Checkout
           </Button>
-          <Button color="secondary" onClick={toggle}>
+          <Button id = "importantButton" onClick={toggle}>
             Cancel
           </Button>
         </ModalFooter>
