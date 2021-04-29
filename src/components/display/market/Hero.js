@@ -46,7 +46,7 @@ function Hero(props) {
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="password">Password</Label>
-                                <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} />
+                                <Input onChange={(e) => setPassword(e.target.value)} type="password" value={password} />
                             </FormGroup>
                             <Button type="submit">Login</Button>
                         </Form>
