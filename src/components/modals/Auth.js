@@ -12,7 +12,6 @@ import {
   Input,
 } from "reactstrap";
 
-
 function Auth(props) {
 
   const { buttonLabel, Login, updateToken, clearToken } = props;
