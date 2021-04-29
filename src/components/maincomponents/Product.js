@@ -14,12 +14,12 @@ function Product(props) {
         <>
             <h2>Test Text.</h2>
             <Card>
-                <CardImg className = "cardImage" top width="100%" src={imageURL} alt="Card image cap" />
+                <CardImg  top width="100%" src={imageURL} alt="Card image cap" />
                 <CardBody>
-                    <CardTitle tag="h5">{productName}</CardTitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">{price}</CardSubtitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">{stock}</CardSubtitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">{storeOwner}</CardSubtitle>
+                    <CardTitle tag="h5" id = "productName">{productName}</CardTitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted" id = "price">Price: {price}</CardSubtitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted" id = "stock">Stock: {stock}</CardSubtitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted" id = "storeOwner">Made by: {storeOwner}</CardSubtitle>
                     <CardText>{description}</CardText>
                     <Button>Add to Cart</Button>
                 </CardBody>

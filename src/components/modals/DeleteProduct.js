@@ -35,13 +35,13 @@ const DeleteProduct = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
+      <Button id = "mainButton" onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader>Delete {productName}?</ModalHeader>
         <ModalBody>
             <Form>
-                <Button type="submit" color="danger" onClick={handleSubmit}>Delete Product</Button>
-                <Button color="secondary" onClick={toggle} >Cancel Action</Button>
+                <Button type="submit" id = "mainButton" onClick={handleSubmit}>Delete Product</Button>
+                <Button id = "importantButton" onClick={toggle} >Cancel Action</Button>
             </Form>
         </ModalBody>
       </Modal>
