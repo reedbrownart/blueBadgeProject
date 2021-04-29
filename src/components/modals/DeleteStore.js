@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {Button, Modal, ModalHeader, ModalBody, Form} from 'reactstrap';
-import APIURL from '../../helpers/environment';
 
 function DeleteStore(props) {
 
@@ -17,7 +16,7 @@ function DeleteStore(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${APIURL}/store/${storeID}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/store/${storeID}`, {
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',

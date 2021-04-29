@@ -12,7 +12,6 @@ import {
   Input,
 } from "reactstrap";
 
-import APIURL from '../../helpers/environment';
 
 function Auth(props) {
 
@@ -33,7 +32,7 @@ function Auth(props) {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    fetch(`${APIURL}/user/register`, {
+    fetch(`${process.env.REACT_APP_API_URL}/user/register`, {
       method: 'POST',
       body: JSON.stringify({
         username: username,
@@ -56,7 +55,7 @@ function Auth(props) {
   }
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch(`${APIURL}/user/login`, {
+    fetch(`${process.env.REACT_APP_API_URL}/user/login`, {
       method: 'POST',
       body: JSON.stringify({ username: username, password: password }),
       headers: new Headers({

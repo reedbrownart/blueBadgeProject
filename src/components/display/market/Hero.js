@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from "react";
 import { Container, Row, Col, Form, FormGroup, Input, Label, Button } from "reactstrap";
-import APIURL from '../../../helpers/environment'
 
 
 function Hero(props) {
@@ -12,7 +11,7 @@ function Hero(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`${APIURL}/user/login`, {
+        fetch(`${process.env.REACT_APP_API_URL}/user/login`, {
             method: "POST",
             body: JSON.stringify({ username: username, password: password }),
             headers: new Headers({
